@@ -1,0 +1,150 @@
+
+body {
+    background-color: #1f2228;
+    color: white;
+  }
+  
+  /* Basic Formatting */
+  :root {
+    --purp: #6c38de;
+    --lightpurp: #1f2228;
+  }
+  
+  /* Reset */
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.25s cubic-bezier(.37,0,.45,.99);
+  }
+  
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @keyframes driving {
+    0% {
+        transform: translateY(-650px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+  }
+  
+  /* Generic Hero */
+  .hero__title {
+    padding: 3em 2rem 16rem;
+    text-align: center;
+    color: #ffffff; /* Approximate conversion of 'darken($purp, 50%)' */
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* GPS Hero */
+  .gps-bg {
+    background-color: var(--lightpurp);
+    position: relative;
+    perspective: 500px;
+    overflow: hidden;
+  }
+  
+  .gps-bg:after {
+    content: '';
+    background-color: #1f2228;
+    position: absolute;
+    width: 200%;
+    height: 5em;
+    bottom: 0;
+    transform: skewY(-2deg);
+  }
+  
+  .gps-bg__guts {
+    position: absolute;
+    transform: rotateX(45deg);
+    width: calc(100% + 1000px);
+    height: 100%;
+    left: -500px;
+  }
+  
+  .gps-bg__bg {
+    height: 1300px;
+    background-image: url(http://www.rastrac.com/hubfs/roads.svg);
+    background-position: 50%;
+    background-size: 25%;
+    position: absolute;
+    top: -162px;
+    width: 100%;
+    transform: translateY(-650px);
+    animation: driving 10000ms linear 0ms infinite;
+  }
+  
+  .gps-bg__route {
+    width: 2em;
+    background-color: #1f2228;
+    position: absolute;
+    top: -162px;
+    bottom: -162px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 13px 5px rgba(87, 62, 222, 0.25); /* Approximate conversion of 'rgba(darken($purp, 30%), 0.25)' */
+  }
+  
+  .gps-bg__route:after {
+    content: '';
+    width: 60%;
+    background-color: var(--purp);
+    position: absolute;
+    top: 0;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .gps-bg__fade {
+    background-image: linear-gradient(to bottom, var(--lightpurp) 10%, rgba(172, 141, 255, 0) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 1;
+  }
+  
+  .gps-bg__marker {
+    height: 6em;
+    width: 6em;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    border-bottom: 3px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-radius: 100%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0.125em 10px 3px rgba(87, 62, 222, 0.25); /* Approximate conversion of 'rgba(darken($purp, 30%), 0.25)' */
+  }
+  
+  .gps-bg__marker:after {
+    content: '';
+    border-left: 1.5em solid transparent;
+    border-right: 1.5em solid transparent;
+    border-bottom: 3em solid var(--purp);
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  *{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
